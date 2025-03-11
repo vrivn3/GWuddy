@@ -8,8 +8,11 @@ body {
   font-family: Arial, sans-serif;
   background: #eee;
   color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
 }
-
 /* Phone Frame (wider now at 440px for better content fit) */
 .phone-frame {
   position: relative;
@@ -37,6 +40,9 @@ main {
   overflow-y: auto;
   padding: 1rem;
   padding-bottom: 70px; /* Space for nav bar */
+  /* display: flex; */
+      align-items: center;
+      justify-content: center;
 }
 
 /* Screens */
@@ -46,169 +52,6 @@ main {
 }
 .hidden {
   display: none;
-}
-
-/* Matches List Screen */
-#matchListScreen h2 {
-  text-align: center;
-  margin-bottom: 1rem;
-}
-.match-card {
-  background: #fff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 1rem;
-  margin-bottom: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s, transform 0.3s;
-}
-.match-card:hover {
-  background-color: #f5f5f5;
-  transform: scale(1.02);
-}
-.match-card.active {
-  background-color: #e0f7fa;
-  border-color: #00acc1;
-}
-.match-card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 0.5rem;
-}
-.match-card h3 {
-  font-size: 1.1rem;
-}
-.match-level {
-  padding: 0.2rem 0.5rem;
-  border-radius: 4px;
-  font-size: 0.9rem;
-  color: #fff;
-  font-weight: bold;
-}
-.match-level.excellent { background: #4caf50; }
-.match-level.good { background: #ffc107; }
-.match-level.okay { background: #ff9800; }
-.match-level.fair { background: #f44336; }
-
-/* Back Button */
-.back-button {
-  background: #0066cc;
-  color: #fff;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-  font-size: 0.9rem;
-  margin-bottom: 1rem;
-  cursor: pointer;
-}
-.back-button:hover {
-  background: #005bb5;
-}
-
-/* Detail Box */
-.detail-box {
-  background: #fff;
-  border: 1px solid #ddd;
-  border-radius: 12px;
-  padding: 1rem;
-  margin-top: 2rem;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-}
-
-/* Detail Header (Name + Gauge) */
-.detail-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-bottom: 1rem;
-}
-.detail-header h2 {
-  font-size: 1.4rem;
-}
-
-/* Gauge Container */
-.gauge-container {
-  width: 120px;
-  height: 60px;
-  position: relative;
-}
-.gauge {
-  width: 100%;
-  height: 100%;
-  background: no-repeat center/contain;
-}
-.gauge.excellent { background-image: url("images/excellent.png"); }
-.gauge.good { background-image: url("images/good.png"); }
-.gauge.okay { background-image: url("images/okay.png"); }
-.gauge.fair { background-image: url("images/fair.png"); }
-
-/* Detail Info */
-.detail-info p {
-  margin-bottom: 0.5rem;
-}
-
-/* Schedule */
-.schedule p {
-  margin-bottom: 0.5rem;
-}
-.schedule-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-}
-.days-of-week {
-  display: flex;
-  gap: 0.5rem;
-}
-.day {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  border: 1px solid #ccc;
-  font-weight: bold;
-}
-.day.active {
-  background: #0066cc;
-  color: #fff;
-  border-color: #0066cc;
-}
-.times-list {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-.time-block {
-  background: #d0eaff;
-  color: #333;
-  padding: 0.3rem 0.6rem;
-  border-radius: 4px;
-  font-weight: bold;
-  white-space: nowrap;
-}
-
-/* Detail Rows: bullet lists for environment, targeted, exercises, and goals */
-.detail-rows {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  margin-top: 1rem;
-}
-.detail-row {
-  display: flex;
-  gap: 2rem;
-}
-.detail-col {
-  flex: 1;
-}
-.detail-col ul {
-  margin-left: 1.2rem;
-  margin-bottom: 1rem;
 }
 
 /* Action Buttons: aligned at bottom */
@@ -260,3 +103,4 @@ main {
   stroke: #333;
   stroke-width: 1.8;
 }
+
