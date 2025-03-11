@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Gym Wuddy - Profile</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="matches.css">
+
+</head>
+
+<body>
+    <div class="phone-frame">
+        <header class="app-header">
+            <h1>My Gym Wuddy</h1>
+
+        </header>
+
+        <main>
+            <section class="screen">
+                <h2>My Profile</h2>
+
+                <div class="detail-box">
+                    <div class="detail-header">
+                        <h2 id="profileName">Emma</h2>
+                        <div class="profile-picture">
+                            <div class="placeholder">Add Photo</div>
+                        </div>
+                    </div>
+
+                    <div class="detail-info">
+                        <p><strong>Experience:</strong> <span id="profileExperience"></span></p>
+                        <p><strong>Travel:</strong> <span id="profileTravel"></span></p>
+                    </div>
+
+                    <div class="schedule">
+
+                        <p><strong>Schedule:</strong></p>
+                        <div class="schedule-row">
+                            <div class="days-of-week" id="profileDays"></div>
+                            <div class="times-list" id="profileTimes"></div>
+                        </div>
+                    </div>
+
+                    <div class="detail-rows">
+                        <div class="detail-row">
+                            <div class="detail-col">
+                                <p><strong>Preferred Environments:</strong></p>
+                                <ul id="profileEnvironment"></ul>
+                            </div>
+                            <div class="detail-col">
+                                <p><strong>Training Focus:</strong></p>
+                                <ul id="profileBodyAreas"></ul>
+                            </div>
+                        </div>
+                        <div class="detail-row">
+                            <div class="detail-col">
+                                <p><strong>Exercise Types:</strong></p>
+                                <ul id="profileExercises"></ul>
+                            </div>
+                            <div class="detail-col">
+                                <p><strong>Fitness Goals:</strong></p>
+                                <ul id="profileGoals"></ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="detail-actions">
+                    <a href="questionnaire.html" class="save-match-btn">Update Preferences</a>
+                </div>
+
+                <!-- Navigation Bar -->
+                <nav class="nav-bar">
+                    <a href="index.html" class="nav-icon" id="navHome">
+                        <!-- Home Icon -->
+                        <svg width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M3 10L12 3L21 10V21H14V14H10V21H3V10Z" stroke="#333" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </a>
+
+                    <a href="error.html" class="nav-icon" id="navChat">
+                        <!-- Chat Icon -->
+                        <svg width="24" height="24" viewBox="0 0 24 24">
+                            <path
+                                d="M21 15C21 16.1046 20.1046 17 19 17H6L3 20V5C3 3.89543 3.89543 3 5 3H19C20.1046 3 21 3.89543 21 5V15Z"
+                                stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </a>
+
+                    <a href="profile.html" class="nav-icon" id="navProfile">
+                        <!-- Profile Icon -->
+                        <svg width="24" height="24" viewBox="0 0 24 24">
+                            <circle cx="12" cy="8" r="4" stroke="#333" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path d="M4 21C4 16.5817 7.58172 13 12 13C16.4183 13 20 16.5817 20 21H4Z" stroke="#333"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </a>
+                </nav>
+    </div>
+    </section>
+    </main>
+
+
+    </div>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const profileData = JSON.parse(localStorage.getItem('userProfile')) || {};
+
+            // Map experience values to display text
+            const experienceMap = {
+                '6m': 'Under 6 months',
+                '1y': '6 months to 1 year',
+                '2y': '1-2 years',
+                '5y': '3-5 years',
+                '10y': '6-10 years',
+                '10y+': 'Over 10 years'
+            };
+
+            // Map travel values to display text
+            const travelMap = {
+                '2.5': '2.5km or less',
+                '5': '5km',
+                '10': '10km',
+                '25': '25km',
+                '50': '50km',
+                '50+': 'Over 50km'
+            };
+
+            // Update profile fields
+            document.getElementById('profileExperience').textContent = experienceMap[profileData.experience] || 'Not specified';
+            document.getElementById('profileTravel').textContent = travelMap[profileData.travel] || 'Not specified';
+
+            // Update lists
+            function updateList(elementId, items) {
+                const list = document.getElementById(elementId);
+                list.innerHTML = items?.map(item => `<li>${item}</li>`).join('') || '<li>Not specified</li>';
+            }
+
+            updateList('profileEnvironment', profileData.environment);
+            updateList('profileBodyAreas', profileData.bodyAreas);
+            updateList('profileExercises', profileData.types);
+            updateList('profileGoals', profileData.goals);
+
+            // Update schedule
+            const daysContainer = document.getElementById('profileDays');
+            const timesContainer = document.getElementById('profileTimes');
+            if (profileData.days) {
+                // Correct day abbreviations and mapping
+                const dayMap = [
+                    { abbr: 'Su', name: 'sunday' },
+                    { abbr: 'M', name: 'monday' },
+                    { abbr: 'T', name: 'tuesday' },
+                    { abbr: 'W', name: 'wednesday' },
+                    { abbr: 'Th', name: 'thursday' },
+                    { abbr: 'F', name: 'friday' },
+                    { abbr: 'Sa', name: 'saturday' }
+                ];
+
+                // Check if "all" is selected
+                const allDaysSelected = profileData.days.includes('all');
+
+                daysContainer.innerHTML = dayMap.map(day => {
+                    const isActive = allDaysSelected || profileData.days.includes(day.name);
+                    return `<span class="day ${isActive ? 'active' : ''}">${day.abbr}</span>`;
+                }).join('');
+            }
+
+            if (profileData.times) {
+                timesContainer.innerHTML = profileData.times
+                    .map(time => `<div class="time-block">${time}</div>`)
+                    .join('');
+            }
+        });
+    </script>
+</body>
+
+</html>

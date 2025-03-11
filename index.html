@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>My Gym Wuddy Web App</title>
+  <link rel="stylesheet" href="index.css" />
+  <link rel="stylesheet" href="matches.css" />
+
+</head>
+<body>
+  <div class="phone-frame">
+    <header class="app-header">
+      <h1>My Gym Wuddy</h1>
+    </header>
+
+    <main id="appContent">
+      <!-- Matches List Screen -->
+      <section class="screen" id="matchListScreen">
+        <h2>Potential Matches</h2>
+
+        <!-- CRYSTAL -->
+        <article class="match-card" data-match="crystal">
+          <div class="match-card-header">
+            <h3>Crystal</h3>
+            <p class="match-level excellent">Excellent</p>
+          </div>
+          <p><strong>Experience:</strong> 3+ years</p>
+          <p><strong>Travel:</strong> 15 km</p>
+          <p><strong>Schedule:</strong> Early mornings</p>
+        </article>
+
+        <!-- KATE -->
+        <article class="match-card" data-match="kate">
+          <div class="match-card-header">
+            <h3>Kate</h3>
+            <p class="match-level excellent">Excellent</p>
+          </div>
+          <p><strong>Experience:</strong> 4+ years</p>
+          <p><strong>Travel:</strong> 12 km</p>
+          <p><strong>Schedule:</strong> Evenings</p>
+        </article>
+
+        <!-- AMANDA -->
+        <article class="match-card" data-match="amanda">
+          <div class="match-card-header">
+            <h3>Amanda</h3>
+            <p class="match-level good">Good</p>
+          </div>
+          <p><strong>Experience:</strong> 3-5 years</p>
+          <p><strong>Travel:</strong> 10 km</p>
+          <p><strong>Schedule:</strong> Early afternoons, Evenings</p>
+        </article>
+
+        <!-- MEGAN -->
+        <article class="match-card" data-match="megan">
+          <div class="match-card-header">
+            <h3>Megan</h3>
+            <p class="match-level good">Good</p>
+          </div>
+          <p><strong>Experience:</strong> 2-4 years</p>
+          <p><strong>Travel:</strong> 8 km</p>
+          <p><strong>Schedule:</strong> Afternoons</p>
+        </article>
+
+        <!-- BECKY -->
+        <article class="match-card" data-match="becky">
+          <div class="match-card-header">
+            <h3>Becky</h3>
+            <p class="match-level okay">Okay</p>
+          </div>
+          <p><strong>Experience:</strong> 1-2 years</p>
+          <p><strong>Travel:</strong> 5 km</p>
+          <p><strong>Schedule:</strong> Evenings</p>
+        </article>
+
+        <!-- SARAH -->
+        <article class="match-card" data-match="sarah">
+          <div class="match-card-header">
+            <h3>Sarah</h3>
+            <p class="match-level fair">Fair</p>
+          </div>
+          <p><strong>Experience:</strong> 0-1 year</p>
+          <p><strong>Travel:</strong> 3 km</p>
+          <p><strong>Schedule:</strong> Weekends only</p>
+        </article>
+      </section>
+
+      <!-- Detail Screen (hidden by default) -->
+      <section class="screen hidden" id="detailScreen">
+        <button class="back-button" id="backButton">Back to Matches</button>
+        <div class="detail-box">
+          <div class="detail-header">
+            <h2 id="detailName"></h2>
+            <div class="gauge-container" id="detailGaugeContainer">
+              <div class="gauge" id="detailGauge"></div>
+            </div>
+          </div>
+
+          <div class="detail-info">
+            <p id="detailExperience"></p>
+            <p id="detailTravel"></p>
+          </div>
+
+          <div class="schedule">
+            <p><strong>Schedule:</strong></p>
+            <div class="schedule-row">
+              <div class="days-of-week" id="detailDays"></div>
+              <div class="times-list" id="detailTimes"></div>
+            </div>
+          </div>
+
+          <div class="detail-rows">
+            <div class="detail-row">
+              <div class="detail-col">
+                <p><strong>Environment:</strong></p>
+                <ul id="detailEnvironment"></ul>
+              </div>
+              <div class="detail-col">
+                <p><strong>Targeted Areas:</strong></p>
+                <ul id="detailTargeted"></ul>
+              </div>
+            </div>
+            <div class="detail-row">
+              <div class="detail-col">
+                <p><strong>Exercises:</strong></p>
+                <ul id="detailExercises"></ul>
+              </div>
+              <div class="detail-col">
+                <p><strong>Fitness Goals:</strong></p>
+                <ul id="detailGoals"></ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="detail-actions">
+          <button class="save-match-btn" id="saveMatchBtn">Save Match</button>
+          <button class="friend-request-btn" id="friendRequestBtn">Friend Request</button>
+        </div>
+      </section>
+    </main>
+
+    <!-- Navigation Bar -->
+    <nav class="nav-bar">
+      <a href="index.html" class="nav-icon" id="navHome">
+        <!-- Home Icon -->
+        <svg width="24" height="24" viewBox="0 0 24 24">
+          <path d="M3 10L12 3L21 10V21H14V14H10V21H3V10Z" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+      <a href="#" class="nav-icon" id="navChat">
+        <a href="error.html" class="nav-icon" id="navChat">
+        <!-- Chat Icon -->
+        <svg width="24" height="24" viewBox="0 0 24 24">
+          <path d="M21 15C21 16.1046 20.1046 17 19 17H6L3 20V5C3 3.89543 3.89543 3 5 3H19C20.1046 3 21 3.89543 21 5V15Z" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+      <a href="#" class="nav-icon" id="navProfile">
+        <a href="profile.html" class="nav-icon" id="navProfile">
+          <!-- Profile Icon -->
+          <svg width="24" height="24" viewBox="0 0 24 24">
+            <circle cx="12" cy="8" r="4" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M4 21C4 16.5817 7.58172 13 12 13C16.4183 13 20 16.5817 20 21H4Z" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        </svg>
+      </a>
+      
+    </nav>
+  </div>
+
+  <script src="index.js"></script>
+</body>
+</html>

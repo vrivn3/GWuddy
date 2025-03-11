@@ -1,0 +1,121 @@
+
+
+/* Questionnaire Specific Styles */
+.questionnaire {
+    padding: 20px;
+    height: calc(100% - 120px); /* Account for header and nav buttons */
+    overflow-y: auto;
+  }
+  
+  .question {
+    display: none;
+    margin-bottom: 60px; /* Space for navigation buttons */
+  }
+  
+  .question.active {
+    display: block;
+  }
+  
+.screen h1 {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  .question h2,
+  .question h4 {
+    text-align: center;
+  }
+  
+  .progress-bar {
+    width: 90%;
+    margin: 0 auto 1.5rem;
+  }
+  
+ 
+ 
+
+  .options-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin: 20px 0; 
+       justify-content: center;
+
+  }
+  
+  .option-item {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+    background: #fff;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .option-item.selected {
+    background-color: #0066cc; /* Matching your button color */
+    color: white;
+    border-color: #0066cc;
+  }
+  
+  .nav-buttons {
+    position: absolute;
+    bottom: 60px; /* Above nav bar */
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    background: white;
+    z-index: 99;
+  }
+  
+  .progress-bar {
+    height: 4px;
+    background-color: #eee;
+    margin: 10px 0;
+    border-radius: 2px;
+  }
+  
+  .progress-fill {
+    height: 100%;
+    background-color: #0066cc; /* Matching your theme color */
+    transition: width 0.3s ease;
+    border-radius: 2px;
+  }
+  
+  /* Button styling to match existing */
+  .next-button, .back-button {
+    background: #0066cc;
+    color: #fff;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .back-button {
+    background: #fff;
+    color: #0066cc;
+    border: 1px solid #0066cc;
+  }
+  
+  .next-button:hover {
+    background: #005bb5;
+  }
+  
+  .back-button:hover {
+    background: #f0f0f0;
+  }
+  
+  /* Hide checkbox inputs visually */
+  .option-item input {
+    position: absolute;
+    opacity: 0;
+    height: 0;
+    width: 0;
+  }
+  

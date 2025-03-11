@@ -1,0 +1,106 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial, sans-serif;
+  background: #eee;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+/* Phone Frame (wider now at 440px for better content fit) */
+.phone-frame {
+  position: relative;
+  width: 440px;
+  height: 812px;
+  background: #fff;
+  border: 2px solid #ccc;
+  border-radius: 40px;
+  overflow: hidden;
+  margin: 2rem auto;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+/* App header */
+.app-header {
+  background: #fff;
+  padding: 1rem;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+}
+
+/* Main content */
+main {
+  height: calc(100% - 70px);
+  overflow-y: auto;
+  padding: 1rem;
+  padding-bottom: 70px; /* Space for nav bar */
+  /* display: flex; */
+      align-items: center;
+      justify-content: center;
+}
+
+/* Screens */
+.screen {
+  width: 100%;
+  min-height: 100%;
+}
+.hidden {
+  display: none;
+}
+
+/* Action Buttons: aligned at bottom */
+.detail-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3rem;
+}
+.detail-actions button {
+  padding: 0.6rem 1.2rem;
+  border: none;
+  background: #0066cc;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.detail-actions button:hover {
+  background: #005bb5;
+}
+
+/* Navigation Bar: pinned at bottom inside phone frame */
+.nav-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background: #fff;
+  border-top: 1px solid #ddd;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 100;
+}
+.nav-icon {
+  text-decoration: none;
+  padding: 0.4rem;
+  border-radius: 50%;
+  transition: background 0.3s;
+}
+.nav-icon.active {
+  background: #ccc;
+}
+.nav-icon svg {
+  display: block;
+  width: 24px;
+  height: 24px;
+  stroke: #333;
+  stroke-width: 1.8;
+}
+
