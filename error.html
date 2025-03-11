@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Error 418 - I'm a Teapot</title>
+  <style>
+    /* Reset & base styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background: #eee;
+      color: #333;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    /* Phone Frame: same dimensions and rounded corners as main app */
+    .phone-frame {
+      position: relative;
+      width: 440px;
+      height: 812px;
+      background: #fff;
+      border: 2px solid #ccc;
+      border-radius: 40px;
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+    /* App Header */
+    .app-header {
+      background: #fff;
+      padding: 1rem;
+      border-bottom: 1px solid #ddd;
+      text-align: center;
+    }
+    .app-header h1 {
+      font-size: 1.5rem;
+    }
+    /* Main content */
+    main {
+      height: calc(100% - 70px);
+      overflow-y: auto;
+      padding: 1rem;
+      padding-bottom: 70px; /* space for nav bar */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    /* Error Box */
+    .error-box {
+      text-align: center;
+      padding: 2rem;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      background: #fff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+    .error-box h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    .error-box p {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    /* Back Button */
+    .back-button {
+      display: inline-block;
+      background: #0066cc;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: background 0.3s;
+    }
+    .back-button:hover {
+      background: #005bb5;
+    }
+    /* Navigation Bar: pinned at the bottom inside phone frame */
+    .nav-bar {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 50px;
+      background: #fff;
+      border-top: 1px solid #ddd;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      z-index: 100;
+    }
+    .nav-icon {
+      text-decoration: none;
+      padding: 0.4rem;
+      border-radius: 50%;
+      transition: background 0.3s;
+    }
+    .nav-icon.active {
+      background: #ccc;
+    }
+    .nav-icon svg {
+      display: block;
+      width: 24px;
+      height: 24px;
+      stroke: #333;
+      stroke-width: 1.8;
+    }
+  </style>
+</head>
+<body>
+  <div class="phone-frame">
+    <header class="app-header">
+      <h1>My Gym Wuddy</h1>
+    </header>
+
+    <main id="errorContent">
+      <div class="error-box">
+        <h1>Error 418</h1>
+        <p>I'm a teapot! This page is under construction.</p>
+        <a href="index.html" class="back-button">Back to Matches</a>
+      </div>
+    </main>
+
+    <nav class="nav-bar">
+      <a href="index.html" class="nav-icon" id="navHome">
+        <!-- Home Icon -->
+        <svg width="24" height="24" viewBox="0 0 24 24">
+          <path d="M3 10L12 3L21 10V21H14V14H10V21H3V10Z" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+      <a href="chat.html" class="nav-icon" id="navChat">
+        <!-- Chat Icon -->
+        <svg width="24" height="24" viewBox="0 0 24 24">
+          <path d="M21 15C21 16.1046 20.1046 17 19 17H6L3 20V5C3 3.89543 3.89543 3 5 3H19C20.1046 3 21 3.89543 21 5V15Z" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+      <a href="profile.html" class="nav-icon" id="navProfile">
+        <!-- Profile Icon -->
+        <svg width="24" height="24" viewBox="0 0 24 24">
+          <circle cx="12" cy="8" r="4" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M4 21C4 16.5817 7.58172 13 12 13C16.4183 13 20 16.5817 20 21H4Z" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </nav>
+  </div>
+</body>
+</html>
