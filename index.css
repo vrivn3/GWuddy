@@ -54,12 +54,13 @@ main {
   display: none;
 }
 
-/* Action Buttons: aligned at bottom */
 .detail-actions {
   display: flex;
   justify-content: space-between;
   margin-top: 3rem;
+  padding: 0 2rem; /* Adds extra space on left and right */
 }
+
 .detail-actions button {
   padding: 0.6rem 1.2rem;
   border: none;
@@ -68,7 +69,10 @@ main {
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s;
+  /* Adding horizontal margin to further separate them */
+  margin: 0 1rem;
 }
+
 .detail-actions button:hover {
   background: #005bb5;
 }

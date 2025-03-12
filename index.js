@@ -90,7 +90,7 @@ const matchData = {
     schedule: {
       days: ["S", "M", "T", "W", "T", "F", "S"],
       activeDays: [true, false, false, false, false, false, true],
-      times: ["Weekends only"]
+      times: ["12pm - 1pm"]
     },
     environment: ["Home workouts", "Outdoors"],
     targeted: ["General fitness"],
