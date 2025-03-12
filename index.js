@@ -5,7 +5,7 @@ function removeActiveStates() {
   });
 }
 
-// Match data for all users
+// Match data for all users with individual state properties
 const matchData = {
   crystal: {
     name: "Crystal",
@@ -20,7 +20,9 @@ const matchData = {
     environment: ["Outdoor track", "Boxing gym"],
     targeted: ["Cardio", "Stamina"],
     exercises: ["Boxing", "Running"],
-    goals: ["Marathon training"]
+    goals: ["Marathon training"],
+    isSaved: false,
+    isFriendRequested: false
   },
   kate: {
     name: "Kate",
@@ -35,7 +37,9 @@ const matchData = {
     environment: ["Indoor gym", "Spin class"],
     targeted: ["Full body", "Endurance"],
     exercises: ["Cycling", "HIIT", "Strength training"],
-    goals: ["Build muscle", "Improve stamina"]
+    goals: ["Build muscle", "Improve stamina"],
+    isSaved: false,
+    isFriendRequested: false
   },
   amanda: {
     name: "Amanda",
@@ -50,7 +54,9 @@ const matchData = {
     environment: ["Indoor gym", "Group class"],
     targeted: ["Lower body", "Upper body", "Endurance"],
     exercises: ["Cardio", "Yoga", "Pilates"],
-    goals: ["Social connections", "Mental health", "Physical health"]
+    goals: ["Social connections", "Mental health", "Physical health"],
+    isSaved: false,
+    isFriendRequested: false
   },
   megan: {
     name: "Megan",
@@ -65,7 +71,9 @@ const matchData = {
     environment: ["CrossFit gym", "Outdoors"],
     targeted: ["Full body", "Core strength"],
     exercises: ["CrossFit", "Light running"],
-    goals: ["Tone muscles", "Increase flexibility"]
+    goals: ["Tone muscles", "Increase flexibility"],
+    isSaved: false,
+    isFriendRequested: false
   },
   becky: {
     name: "Becky",
@@ -80,7 +88,9 @@ const matchData = {
     environment: ["Home gym", "Local park"],
     targeted: ["Core", "Lower body"],
     exercises: ["Weightlifting", "HIIT"],
-    goals: ["Improve endurance"]
+    goals: ["Improve endurance"],
+    isSaved: false,
+    isFriendRequested: false
   },
   sarah: {
     name: "Sarah",
@@ -95,12 +105,18 @@ const matchData = {
     environment: ["Home workouts", "Outdoors"],
     targeted: ["General fitness"],
     exercises: ["Light cardio", "Beginner yoga"],
-    goals: ["Get started", "Build confidence"]
+    goals: ["Get started", "Build confidence"],
+    isSaved: false,
+    isFriendRequested: false
   }
 };
 
+// Global variable to track the current match ID being viewed
+let currentMatchId = null;
+
 // Load detail view with data for a match
 function loadDetail(matchId) {
+  currentMatchId = matchId; // Save the current match ID
   const data = matchData[matchId];
   document.getElementById("detailName").textContent = data.name;
   document.getElementById("detailExperience").innerHTML = "<strong>Experience:</strong> " + data.experience;
@@ -146,6 +162,26 @@ function loadDetail(matchId) {
   buildList("detailTargeted", data.targeted);
   buildList("detailExercises", data.exercises);
   buildList("detailGoals", data.goals);
+
+  // Reset or update button states based on the current match's state
+  const saveBtn = document.getElementById("saveMatchBtn");
+  const friendBtn = document.getElementById("friendRequestBtn");
+
+  if (data.isSaved) {
+    saveBtn.textContent = "Match Saved";
+    saveBtn.style.backgroundColor = "green";
+  } else {
+    saveBtn.textContent = "Save Match";
+    saveBtn.style.backgroundColor = "#0066cc"; // Original button color
+  }
+  
+  if (data.isFriendRequested) {
+    friendBtn.textContent = "Friend Request Sent";
+    friendBtn.style.backgroundColor = "green";
+  } else {
+    friendBtn.textContent = "Friend Request";
+    friendBtn.style.backgroundColor = "#0066cc"; // Original button color
+  }
 }
 
 // Toggle between match list and detail screens
@@ -167,24 +203,17 @@ document.getElementById("backButton").addEventListener("click", () => {
   removeActiveStates();
 });
 
-// // Nav Bar: set active state and redirect to error page
-// document.querySelectorAll(".nav-icon").forEach(icon => {
-//   icon.addEventListener("click", function(e) {
-//     e.preventDefault();
-//     document.querySelectorAll(".nav-icon").forEach(i => i.classList.remove("active"));
-//     this.classList.add("active");
-//     setTimeout(() => {
-//       window.location.href = "profile.html";
-//     }, 300);
-//   });
-// });
-
 // Save Match & Friend Request button logic
 document.getElementById("saveMatchBtn").addEventListener("click", function() {
+  if (!currentMatchId) return;
+  matchData[currentMatchId].isSaved = true;
   this.textContent = "Match Saved";
   this.style.backgroundColor = "green";
 });
+
 document.getElementById("friendRequestBtn").addEventListener("click", function() {
+  if (!currentMatchId) return;
+  matchData[currentMatchId].isFriendRequested = true;
   this.textContent = "Friend Request Sent";
   this.style.backgroundColor = "green";
 });

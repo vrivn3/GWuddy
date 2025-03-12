@@ -31,7 +31,7 @@
                     <div class="question active" data-step="1">
                         <h2>What days do you exercise?</h2>
                         <h4>Select all that apply</h4> 
-
+                        <div class="error-message" style="color:red; font-size:0.9em; margin-bottom:0.5em;"></div>
                         <div class="options-grid">
                             <label class="option-item">
                                 <input type="checkbox" name="days" value="all"> All Days
@@ -64,7 +64,7 @@
                     <div class="question" data-step="2">
                         <h2>What times of day do you exercise?</h2>
                         <h4>Select all that apply</h4>
-
+                        <div class="error-message" style="color:red; font-size:0.9em; margin-bottom:0.5em;"></div>
                         <div class="options-grid">
                             <label class="option-item">
                                 <input type="checkbox" name="times" value="12am-6am"> 12am-6am
@@ -85,7 +85,7 @@
                     <div class="question" data-step="3">
                         <h2>How do you like to exercise?</h2>
                         <h4>Select all that apply</h4>
-
+                        <div class="error-message" style="color:red; font-size:0.9em; margin-bottom:0.5em;"></div>
                         <div class="options-grid">
                             <label class="option-item">
                                 <input type="checkbox" name="types" value="cardio"> Cardio
@@ -118,6 +118,7 @@
                     <div class="question" data-step="4">
                         <h2>What environments do you want to exercise in?</h2>
                         <h4>Select all that apply</h4>
+                        <div class="error-message" style="color:red; font-size:0.9em; margin-bottom:0.5em;"></div>
                         <div class="options-grid">
                             <label class="option-item">
                                 <input type="checkbox" name="environment" value="indoor"> Indoor Gym
@@ -138,6 +139,7 @@
                     <div class="question" data-step="5">
                         <h2>What are your fitness Goals?</h2>
                         <h4>Select all that apply</h4>
+                        <div class="error-message" style="color:red; font-size:0.9em; margin-bottom:0.5em;"></div>
                         <div class="options-grid">
                             <label class="option-item">
                                 <input type="checkbox" name="goals" value="mental"> Mental Health
@@ -170,6 +172,7 @@
                     <div class="question" data-step="6">
                         <h2>What areas of your body are you training?</h2>
                         <h4>Select all that apply</h4>
+                        <div class="error-message" style="color:red; font-size:0.9em; margin-bottom:0.5em;"></div>
                         <div class="options-grid">
                             <label class="option-item">
                                 <input type="checkbox" name="body-areas" value="upper"> Upper Body
@@ -190,6 +193,7 @@
                     <div class="question" data-step="7">
                         <h2>How far are you willing to Travel?</h2>
                         <h4>Select one option</h4>
+                        <div class="error-message" style="color:red; font-size:0.9em; margin-bottom:0.5em;"></div>
                         <div class="options-grid">
                             <label class="option-item">
                                 <input type="radio" name="travel" value="2.5"> 2.5km or less
@@ -216,6 +220,7 @@
                     <div class="question" data-step="8">
                         <h2>How long have you been consistently exercising?</h2>
                         <h4>Select one option</h4>
+                        <div class="error-message" style="color:red; font-size:0.9em; margin-bottom:0.5em;"></div>
                         <div class="options-grid">
                             <label class="option-item">
                                 <input type="radio" name="experience" value="6m"> Under 6 months
@@ -282,67 +287,94 @@
     </div>
 
     <script>
+    let currentStep = 1;
+const totalSteps = document.querySelectorAll('.question').length;
 
-        let currentStep = 1;
-        const totalSteps = document.querySelectorAll('.question').length;
+function showStep(step) {
+  document.querySelectorAll('.question').forEach(q => {
+    q.classList.remove('active');
+    // Clear any previous error message when showing a new step
+    const errorMsg = q.querySelector('.error-message');
+    if (errorMsg) {
+      errorMsg.textContent = '';
+    }
+  });
+  document.querySelector(`[data-step="${step}"]`).classList.add('active');
 
-        function showStep(step) {
-            document.querySelectorAll('.question').forEach(q => q.classList.remove('active'));
-            document.querySelector(`[data-step="${step}"]`).classList.add('active');
+  // Update progress bar
+  const progress = (step / totalSteps) * 100;
+  document.getElementById('progressFill').style.width = `${progress}%`;
 
-            // Update progress bar
-            const progress = (step / totalSteps) * 100;
-            document.getElementById('progressFill').style.width = `${progress}%`;
+  // Toggle back button visibility
+  document.getElementById('backButton').style.display = step > 1 ? 'block' : 'none';
+}
 
-            // Toggle back button visibility
-            document.getElementById('backButton').style.display = step > 1 ? 'block' : 'none';
-        }
+document.getElementById('nextButton').addEventListener('click', () => {
+  // Get the currently active question element
+  const currentQuestion = document.querySelector('.question.active');
+  // Check if any input within the current question is checked
+  const hasSelection = currentQuestion.querySelector('input:checked');
 
-        
+  // Get error message container within this question
+  const errorMsg = currentQuestion.querySelector('.error-message');
 
-        document.getElementById('nextButton').addEventListener('click', () => {
-            // Replace the existing alert with:
-            if (currentStep < totalSteps) {
-                currentStep++;
-                showStep(currentStep);
-            } else {
-                saveProfileData();
-            }
-        });
+  if (!hasSelection) {
+    errorMsg.textContent = "Please make a selection";
+    return;
+  } else {
+    // Clear error message if selection is made
+    errorMsg.textContent = "";
+  }
+  
+  if (currentStep < totalSteps) {
+    currentStep++;
+    showStep(currentStep);
+  } else {
+    saveProfileData();
+  }
+});
 
-        document.getElementById('backButton').addEventListener('click', () => {
-            if (currentStep > 1) {
-                currentStep--;
-                showStep(currentStep);
-            }
-        });
+document.getElementById('backButton').addEventListener('click', () => {
+  if (currentStep > 1) {
+    currentStep--;
+    showStep(currentStep);
+  }
+});
 
-        // Add selection styling
-        document.querySelectorAll('.option-item input').forEach(input => {
-            input.addEventListener('change', () => {
-                input.parentElement.classList.toggle('selected', input.checked);
-            });
-        });
+// Add selection styling and clear error message when an option is selected
+document.querySelectorAll('.option-item input').forEach(input => {
+  input.addEventListener('change', () => {
+    input.parentElement.classList.toggle('selected', input.checked);
+    // Clear error message when an option is selected
+    const currentQuestion = input.closest('.question');
+    const errorMsg = currentQuestion.querySelector('.error-message');
+    if (currentQuestion.querySelector('input:checked')) {
+      errorMsg.textContent = "";
+    }
+  });
+});
 
-        function saveProfileData() {
-            const formData = {
-                days: Array.from(document.querySelectorAll('input[name="days"]:checked')).map(cb => cb.value),
-                times: Array.from(document.querySelectorAll('input[name="times"]:checked')).map(cb => cb.value),
-                types: Array.from(document.querySelectorAll('input[name="types"]:checked')).map(cb => cb.value),
-                environment: Array.from(document.querySelectorAll('input[name="environment"]:checked')).map(cb => cb.value),
-                goals: Array.from(document.querySelectorAll('input[name="goals"]:checked')).map(cb => cb.value),
-                bodyAreas: Array.from(document.querySelectorAll('input[name="body-areas"]:checked')).map(cb => cb.value),
-                travel: document.querySelector('input[name="travel"]:checked')?.value || '',
-                experience: document.querySelector('input[name="experience"]:checked')?.value || ''
-            };
+function saveProfileData() {
+  const formData = {
+    days: Array.from(document.querySelectorAll('input[name="days"]:checked')).map(cb => cb.value),
+    times: Array.from(document.querySelectorAll('input[name="times"]:checked')).map(cb => cb.value),
+    types: Array.from(document.querySelectorAll('input[name="types"]:checked')).map(cb => cb.value),
+    environment: Array.from(document.querySelectorAll('input[name="environment"]:checked')).map(cb => cb.value),
+    goals: Array.from(document.querySelectorAll('input[name="goals"]:checked')).map(cb => cb.value),
+    bodyAreas: Array.from(document.querySelectorAll('input[name="body-areas"]:checked')).map(cb => cb.value),
+    travel: document.querySelector('input[name="travel"]:checked')?.value || '',
+    experience: document.querySelector('input[name="experience"]:checked')?.value || ''
+  };
 
-            // Save to localStorage
-            localStorage.setItem('userProfile', JSON.stringify(formData));
+  // Save to localStorage
+  localStorage.setItem('userProfile', JSON.stringify(formData));
 
-            // Redirect to profile page
-            window.location.href = 'profile.html';
-        }
-    </script>
+  // Redirect to profile page
+  window.location.href = 'profile.html';
+}
+
+</script>
+
 </body>
 
 </html>

@@ -23,8 +23,9 @@
   
   .question h2,
   .question h4 {
-    text-align: center;
+    margin-bottom: 20px;
   }
+  
   
   .progress-bar {
     width: 90%;
