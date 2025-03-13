@@ -109,3 +109,7 @@ main {
   stroke: #333;
   stroke-width: 1.8;
 }
+
+.current-page{
+  background: pink;
+}
