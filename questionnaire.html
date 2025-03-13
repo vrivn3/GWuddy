@@ -20,7 +20,7 @@
 
         <main id="appContent">
             <section class="screen">
-                <h1>Tell Us About Yourself</h1> 
+                <h1>Tell Us About Yourself</h1>
 
                 <div class="progress-bar">
                     <div class="progress-fill" id="progressFill"></div>
@@ -30,8 +30,8 @@
                     <!-- Question 1 -->
                     <div class="question active" data-step="1">
                         <h2>What days do you exercise?</h2>
-                        <h4>Select all that apply</h4> 
-
+                        <h4>Select all that apply</h4>
+                        <div class="error-message" style="color:red; font-size:0.9em; margin-bottom:0.5em;"></div>
                         <div class="options-grid">
                             <label class="option-item">
                                 <input type="checkbox" name="days" value="all"> All Days
@@ -64,7 +64,7 @@
                     <div class="question" data-step="2">
                         <h2>What times of day do you exercise?</h2>
                         <h4>Select all that apply</h4>
-
+                        <div class="error-message" style="color:red; font-size:0.9em; margin-bottom:0.5em;"></div>
                         <div class="options-grid">
                             <label class="option-item">
                                 <input type="checkbox" name="times" value="12am-6am"> 12am-6am
@@ -85,7 +85,7 @@
                     <div class="question" data-step="3">
                         <h2>How do you like to exercise?</h2>
                         <h4>Select all that apply</h4>
-
+                        <div class="error-message" style="color:red; font-size:0.9em; margin-bottom:0.5em;"></div>
                         <div class="options-grid">
                             <label class="option-item">
                                 <input type="checkbox" name="types" value="cardio"> Cardio
@@ -118,6 +118,7 @@
                     <div class="question" data-step="4">
                         <h2>What environments do you want to exercise in?</h2>
                         <h4>Select all that apply</h4>
+                        <div class="error-message" style="color:red; font-size:0.9em; margin-bottom:0.5em;"></div>
                         <div class="options-grid">
                             <label class="option-item">
                                 <input type="checkbox" name="environment" value="indoor"> Indoor Gym
@@ -138,6 +139,7 @@
                     <div class="question" data-step="5">
                         <h2>What are your fitness Goals?</h2>
                         <h4>Select all that apply</h4>
+                        <div class="error-message" style="color:red; font-size:0.9em; margin-bottom:0.5em;"></div>
                         <div class="options-grid">
                             <label class="option-item">
                                 <input type="checkbox" name="goals" value="mental"> Mental Health
@@ -170,6 +172,7 @@
                     <div class="question" data-step="6">
                         <h2>What areas of your body are you training?</h2>
                         <h4>Select all that apply</h4>
+                        <div class="error-message" style="color:red; font-size:0.9em; margin-bottom:0.5em;"></div>
                         <div class="options-grid">
                             <label class="option-item">
                                 <input type="checkbox" name="body-areas" value="upper"> Upper Body
@@ -190,6 +193,7 @@
                     <div class="question" data-step="7">
                         <h2>How far are you willing to Travel?</h2>
                         <h4>Select one option</h4>
+                        <div class="error-message" style="color:red; font-size:0.9em; margin-bottom:0.5em;"></div>
                         <div class="options-grid">
                             <label class="option-item">
                                 <input type="radio" name="travel" value="2.5"> 2.5km or less
@@ -216,6 +220,7 @@
                     <div class="question" data-step="8">
                         <h2>How long have you been consistently exercising?</h2>
                         <h4>Select one option</h4>
+                        <div class="error-message" style="color:red; font-size:0.9em; margin-bottom:0.5em;"></div>
                         <div class="options-grid">
                             <label class="option-item">
                                 <input type="radio" name="experience" value="6m"> Under 6 months
@@ -247,37 +252,39 @@
         </main>
 
         <!-- Navigation Bar -->
+        <!-- Navigation Bar -->
         <nav class="nav-bar">
-
-            <a href="index.html" class="nav-icon" id="navHome">
+            <a href="home.html" class="nav-icon" id="navHome">
                 <!-- Home Icon -->
                 <svg width="24" height="24" viewBox="0 0 24 24">
                     <path d="M3 10L12 3L21 10V21H14V14H10V21H3V10Z" stroke="#333" stroke-width="2"
                         stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
             </a>
-
-                <a href="error.html" class="nav-icon" id="navChat">
-                    <!-- Chat Icon -->
-                    <svg width="24" height="24" viewBox="0 0 24 24">
-                        <path
-                            d="M21 15C21 16.1046 20.1046 17 19 17H6L3 20V5C3 3.89543 3.89543 3 5 3H19C20.1046 3 21 3.89543 21 5V15Z"
-                            stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
-                </a>
-
-                    <a href="profile.html" class="nav-icon" id="navProfile">
-                        <!-- Profile Icon -->
-                        <svg width="24" height="24" viewBox="0 0 24 24">
-                            <circle cx="12" cy="8" r="4" stroke="#333" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                            <path d="M4 21C4 16.5817 7.58172 13 12 13C16.4183 13 20 16.5817 20 21H4Z" stroke="#333"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                    </a>
-
-                    </svg>
-                </a>
+            <a href="index.html" class="nav-icon" id="navMatches">
+                <!-- Matches Icon -->
+                <svg width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M 3 2 V 6 L 37 6 V 2 M 3 9 V 13 L 37 13 V 9 M 3 16 V 20 L 37 20 V 16" stroke="#333"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </a>
+            <a href="chat.html" class="nav-icon" id="navChat">
+                <!-- Chat Icon -->
+                <svg width="24" height="24" viewBox="0 0 24 24">
+                    <path
+                        d="M21 15C21 16.1046 20.1046 17 19 17H6L3 20V5C3 3.89543 3.89543 3 5 3H19C20.1046 3 21 3.89543 21 5V15Z"
+                        stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </a>
+            <a href="profile.html" class="nav-icon" id="navProfile">
+                <!-- Profile Icon -->
+                <svg width="24" height="24" viewBox="0 0 24 24">
+                    <circle cx="12" cy="8" r="4" stroke="#333" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    <path d="M4 21C4 16.5817 7.58172 13 12 13C16.4183 13 20 16.5817 20 21H4Z" stroke="#333"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </a>
         </nav>
     </div>
 
@@ -285,23 +292,40 @@
 
         let currentStep = 1;
         const totalSteps = document.querySelectorAll('.question').length;
+        const nextButton = document.getElementById('nextButton');
 
         function showStep(step) {
-            document.querySelectorAll('.question').forEach(q => q.classList.remove('active'));
+            document.querySelectorAll('.question').forEach(q => {
+                q.classList.remove('active');
+                const errorMsg = q.querySelector('.error-message');
+                if (errorMsg) errorMsg.textContent = '';
+            });
+
             document.querySelector(`[data-step="${step}"]`).classList.add('active');
+
+            // Update button text
+            nextButton.textContent = step === totalSteps ? 'Submit' : 'Next';
 
             // Update progress bar
             const progress = (step / totalSteps) * 100;
             document.getElementById('progressFill').style.width = `${progress}%`;
 
-            // Toggle back button visibility
-            document.getElementById('backButton').style.display = step > 1 ? 'block' : 'none';
+            // Always show back button
+            document.getElementById('backButton').style.display = 'block';
         }
 
-        
 
-        document.getElementById('nextButton').addEventListener('click', () => {
-            // Replace the existing alert with:
+        // Update the event listener name to handle both cases
+        nextButton.addEventListener('click', () => {
+            const currentQuestion = document.querySelector('.question.active');
+            const hasSelection = currentQuestion.querySelector('input:checked');
+            const errorMsg = currentQuestion.querySelector('.error-message');
+
+            if (!hasSelection) {
+                errorMsg.textContent = "Please make a selection";
+                return;
+            }
+
             if (currentStep < totalSteps) {
                 currentStep++;
                 showStep(currentStep);
@@ -310,6 +334,7 @@
             }
         });
 
+
         document.getElementById('backButton').addEventListener('click', () => {
             if (currentStep > 1) {
                 currentStep--;
@@ -317,10 +342,16 @@
             }
         });
 
-        // Add selection styling
+        // Add selection styling and clear error message when an option is selected
         document.querySelectorAll('.option-item input').forEach(input => {
             input.addEventListener('change', () => {
                 input.parentElement.classList.toggle('selected', input.checked);
+                // Clear error message when an option is selected
+                const currentQuestion = input.closest('.question');
+                const errorMsg = currentQuestion.querySelector('.error-message');
+                if (currentQuestion.querySelector('input:checked')) {
+                    errorMsg.textContent = "";
+                }
             });
         });
 
@@ -342,7 +373,9 @@
             // Redirect to profile page
             window.location.href = 'profile.html';
         }
+
     </script>
+
 </body>
 
 </html>

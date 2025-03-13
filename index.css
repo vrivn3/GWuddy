@@ -54,23 +54,29 @@ main {
   display: none;
 }
 
+
 /* Action Buttons: aligned at bottom */
 .detail-actions {
-  display: flex;
-  justify-content: space-between;
+  display: center;
+  justify-content: center;
   margin-top: 3rem;
+  padding: 0 2rem; /* Adds extra space on left and right */
+
 }
 .detail-actions button {
   padding: 0.6rem 1.2rem;
   border: none;
-  background: #0066cc;
+  background: #ffb6c1;
   color: #fff;
-  border-radius: 4px;
+  border-radius: 14px;
   cursor: pointer;
   transition: background-color 0.3s;
+  margin: 0 1rem;
+
 }
+
 .detail-actions button:hover {
-  background: #005bb5;
+  background: #ffb6c1;
 }
 
 /* Navigation Bar: pinned at bottom inside phone frame */
@@ -103,4 +109,3 @@ main {
   stroke: #333;
   stroke-width: 1.8;
 }
-
