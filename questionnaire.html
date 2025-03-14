@@ -292,6 +292,7 @@
 
         let currentStep = 1;
         const totalSteps = document.querySelectorAll('.question').length;
+        const nextButton = document.getElementById('nextButton');
 
         function showStep(step) {
             document.querySelectorAll('.question').forEach(q => {
@@ -304,7 +305,13 @@
             const progress = (step / totalSteps) * 100;
             document.getElementById('progressFill').style.width = `${progress}%`;
 
-            // Always show back button with different behavior for first step
+            // Update button text
+            if (step === totalSteps) {
+                nextButton.textContent = 'Submit';
+            } else {
+                nextButton.textContent = 'Next';
+            }
+
             document.getElementById('backButton').style.display = 'block';
         }
 
@@ -316,6 +323,15 @@
                 currentStep--;
                 showStep(currentStep);
             }
+
+            // Update button text
+            if (step === totalSteps) {
+                nextButton.textContent = 'Submit';
+            } else {
+                nextButton.textContent = 'Next';
+            }
+
+
         });
 
         // Update the event listener name to handle both cases
