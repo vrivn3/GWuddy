@@ -49,7 +49,7 @@
 .match-level.fair { background: #f44336; }
 
 /* Back Button */
-.back-button, .save-match-btn {
+.back-button, .save-match-btn , .friend-request-btn {
   background: #ffb6c1;
   color: #fff;
   border: none;
@@ -253,9 +253,36 @@
       text-decoration: none;
       font-size: 0.95rem;
       transition: background 0.3s ease;
-      /* Remove justify-content: center */
+      justify-content: center 
     }
     
     .detail-actions a:hover {
       background: #ffb6c1;
     }
+
+
+
+    /* Add to matches.css */
+.match-card .profile-picture {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+}
+
+.match-card .profile-picture .placeholder {
+  color: #666;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+/* For the detail view */
+.detail-header .profile-picture {
+  width: 80px;
+  height: 80px;
+  margin-right: 20px;
+}

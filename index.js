@@ -1,10 +1,13 @@
 // Check questionnaire completion status
+
 document.addEventListener('DOMContentLoaded', () => {
-  const questionnaireCompleted = sessionStorage.getItem('questionnaireCompleted');
+  const questionsCompleted = localStorage.getItem('questionsCompleted');
+  console.log('questionsCompleted:', questionsCompleted); // Debugging line
+
   const matchListScreen = document.getElementById('matchListScreen');
   const questionnairePrompt = document.getElementById('questionnairePrompt');
 
-  if (!questionnaireCompleted) {
+  if (!questionsCompleted) {
     matchListScreen.classList.add('hidden');
     questionnairePrompt.classList.remove('hidden');
   } else {
@@ -18,12 +21,14 @@ function removeActiveStates() {
   document.querySelectorAll(".match-card").forEach((card) => {
     card.classList.remove("active");
   });
+
 }
 
 // Match data for all users with individual state properties
 const matchData = {
   crystal: {
     name: "Crystal",
+    initials: "CR",
     level: "excellent",
     experience: "3+ years",
     travel: "15 km",
@@ -41,6 +46,7 @@ const matchData = {
   },
   kate: {
     name: "Kate",
+    initials: "KA",
     level: "excellent",
     experience: "4+ years",
     travel: "12 km",
@@ -59,6 +65,7 @@ const matchData = {
   amanda: {
     name: "Amanda",
     level: "good",
+    initials: "AM",
     experience: "3-5 years",
     travel: "10 km",
     schedule: {
@@ -75,6 +82,7 @@ const matchData = {
   },
   megan: {
     name: "Megan",
+    initials: "ME",
     level: "good",
     experience: "2-4 years",
     travel: "8 km",
@@ -92,6 +100,7 @@ const matchData = {
   },
   becky: {
     name: "Becky",
+    initials: "BE",
     level: "okay",
     experience: "1-2 years",
     travel: "5 km",
@@ -109,6 +118,7 @@ const matchData = {
   },
   sarah: {
     name: "Sarah",
+    initials: "SH",
     level: "fair",
     experience: "0-1 year",
     travel: "3 km",
@@ -133,10 +143,26 @@ let currentMatchId = null;
 function loadDetail(matchId) {
   currentMatchId = matchId; // Save the current match ID
   const data = matchData[matchId];
+
+
+  // Clear previous profile picture
+  const detailHeader = document.querySelector('.detail-header');
+  const existingPictures = detailHeader.querySelectorAll('.profile-picture');
+  existingPictures.forEach(pic => pic.remove());
+
+  // Add new profile picture
+  const detailPicture = document.createElement('div');
+  detailPicture.className = 'profile-picture';
+  detailPicture.innerHTML = `<div class="placeholder">${data.initials}</div>`;
+  detailHeader.insertBefore(detailPicture, detailHeader.firstChild);
+
+
   document.getElementById("detailName").textContent = data.name;
   document.getElementById("detailExperience").innerHTML = "<strong>Experience:</strong> " + data.experience;
   document.getElementById("detailTravel").innerHTML = "<strong>Travel:</strong> " + data.travel;
 
+
+  
   // Gauge
   const gaugeEl = document.getElementById("detailGauge");
   gaugeEl.className = "gauge " + data.level;
@@ -204,8 +230,10 @@ document.querySelectorAll(".match-card").forEach(card => {
   card.addEventListener("click", () => {
     removeActiveStates();
     card.classList.add("active");
+
     const matchId = card.getAttribute("data-match");
     loadDetail(matchId);
+    
     document.getElementById("matchListScreen").classList.add("hidden");
     document.getElementById("detailScreen").classList.remove("hidden");
   });

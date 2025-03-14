@@ -126,7 +126,7 @@ main {
 .questionnaire-prompt {
   max-width: 300px;
 }
-
+/* 
 .cta-button {
   background: #ffb6c1;
   color: white;
@@ -136,8 +136,15 @@ main {
   display: inline-block;
   margin-top: 1rem;
   transition: background 0.3s ease;
-}
+} */
 
 .cta-button:hover {
   background: #ff9aa2;
 }
+
+/* Ensure .hidden class works */
+.hidden {
+  display: none !important;
+}
+
+
