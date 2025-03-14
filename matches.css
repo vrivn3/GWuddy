@@ -49,24 +49,38 @@
 .match-level.fair { background: #f44336; }
 
 /* Back Button */
-.back-button {
+.back-button, .save-match-btn {
   background: #ffb6c1;
   color: #fff;
   border: none;
   padding: 0.5rem 1rem;
   border-radius: 20px;
   font-size: 0.9rem;
-  margin-bottom: 1rem;
   cursor: pointer;
+  flex: 1;
+  min-width: 120px;
+  text-align: center;
+  transition: background 0.3s ease;
 }
 
-.detail-actions{
-  margin-top: 1.5rem;
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  
+.back-button:hover, .save-match-btn:hover {
+  background: #ff9aa2;
 }
+
+/* Disabled State */
+.save-match-btn[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+.detail-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+
 .detail-actions a {
   display: inline-flex;
   padding: 0.8rem 2rem;

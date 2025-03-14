@@ -292,7 +292,6 @@
 
         let currentStep = 1;
         const totalSteps = document.querySelectorAll('.question').length;
-        const nextButton = document.getElementById('nextButton');
 
         function showStep(step) {
             document.querySelectorAll('.question').forEach(q => {
@@ -302,18 +301,22 @@
             });
 
             document.querySelector(`[data-step="${step}"]`).classList.add('active');
-
-            // Update button text
-            nextButton.textContent = step === totalSteps ? 'Submit' : 'Next';
-
-            // Update progress bar
             const progress = (step / totalSteps) * 100;
             document.getElementById('progressFill').style.width = `${progress}%`;
 
-            // Always show back button
+            // Always show back button with different behavior for first step
             document.getElementById('backButton').style.display = 'block';
         }
 
+        document.getElementById('backButton').addEventListener('click', () => {
+            if (currentStep === 1) {
+                // Redirect to questionnaire.html if on first step
+                window.location.href = 'questionnaire.html';
+            } else if (currentStep > 1) {
+                currentStep--;
+                showStep(currentStep);
+            }
+        });
 
         // Update the event listener name to handle both cases
         nextButton.addEventListener('click', () => {
@@ -335,12 +338,12 @@
         });
 
 
-        document.getElementById('backButton').addEventListener('click', () => {
-            if (currentStep > 1) {
-                currentStep--;
-                showStep(currentStep);
-            }
-        });
+        // document.getElementById('backButton').addEventListener('click', () => {
+        //     if (currentStep > 1) {
+        //         currentStep--;
+        //         showStep(currentStep);
+        //     }
+        // });
 
         // Add selection styling and clear error message when an option is selected
         document.querySelectorAll('.option-item input').forEach(input => {
@@ -369,7 +372,7 @@
 
             // Save to localStorage
             localStorage.setItem('userProfile', JSON.stringify(formData));
-
+            localStorage.setItem('questionsCompleted', 'true');
             // Redirect to profile page
             window.location.href = 'profile.html';
         }

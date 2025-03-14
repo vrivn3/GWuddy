@@ -172,7 +172,7 @@ function loadDetail(matchId) {
     saveBtn.style.backgroundColor = "green";
   } else {
     saveBtn.textContent = "Save Match";
-    saveBtn.style.backgroundColor = "#0066cc"; // Original button color
+    saveBtn.style.backgroundColor = "#ffb6c1"; // Original button color
   }
   
   if (data.isFriendRequested) {
@@ -180,7 +180,7 @@ function loadDetail(matchId) {
     friendBtn.style.backgroundColor = "green";
   } else {
     friendBtn.textContent = "Friend Request";
-    friendBtn.style.backgroundColor = "#0066cc"; // Original button color
+    friendBtn.style.backgroundColor = "#ffb6c1"; // Original button color
   }
 }
 
