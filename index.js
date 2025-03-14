@@ -1,3 +1,18 @@
+// Check questionnaire completion status
+document.addEventListener('DOMContentLoaded', () => {
+  const questionnaireCompleted = sessionStorage.getItem('questionnaireCompleted');
+  const matchListScreen = document.getElementById('matchListScreen');
+  const questionnairePrompt = document.getElementById('questionnairePrompt');
+
+  if (!questionnaireCompleted) {
+    matchListScreen.classList.add('hidden');
+    questionnairePrompt.classList.remove('hidden');
+  } else {
+    matchListScreen.classList.remove('hidden');
+    questionnairePrompt.classList.add('hidden');
+  }
+});
+
 // Remove active state from all match cards
 function removeActiveStates() {
   document.querySelectorAll(".match-card").forEach((card) => {

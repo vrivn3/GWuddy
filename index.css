@@ -113,3 +113,31 @@ main {
 .current-page{
   background: pink;
 }
+
+/* Questionnaire Prompt Styles */
+#questionnairePrompt {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+.questionnaire-prompt {
+  max-width: 300px;
+}
+
+.cta-button {
+  background: #ffb6c1;
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 25px;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 1rem;
+  transition: background 0.3s ease;
+}
+
+.cta-button:hover {
+  background: #ff9aa2;
+}
