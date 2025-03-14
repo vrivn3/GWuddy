@@ -29,7 +29,28 @@
   margin: 0 auto 1.5rem;
 }
 
+.options-holder{
+  display: flex;
+  justify-content: space-around;
 
+}
+
+.options-list{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 10px;
+}
+
+.exercise-times{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+select {
+  border-radius: 6px;
+}
 
 .options-grid {
   display: grid;

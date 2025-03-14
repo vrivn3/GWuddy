@@ -27,8 +27,412 @@
                 </div>
 
                 <div class="questionnaire">
-                    <!-- Question 1 -->
+                    <div class="questionnaire">
+                        <!--tester - date/time selector question-->
                     <div class="question active" data-step="1">
+                        <h2>When do you exercise?</h2>
+                        <h4>Select at least one date/time range</h4>
+                        <div class="error-message" style="color:red; font-size:0.9em; margin-bottom:0.5em;"></div>
+                        <div class="options-holder">
+                            <div class="options-list">
+                             <!--<label class="option-item">
+                                    <input type="checkbox" name="days" value="all"> All Days
+                                </label>-->
+                                <label class="option-item">
+                                    <input type="checkbox" name="days" value="monday"> Monday
+                                </label>
+                                <label class="option-item">
+                                    <input type="checkbox" name="days" value="tuesday"> Tuesday
+                                </label>
+                                <label class="option-item">
+                                    <input type="checkbox" name="days" value="wednesday"> Wednesday
+                                </label>
+                                <label class="option-item">
+                                    <input type="checkbox" name="days" value="thursday"> Thursday
+                                </label>
+                                <label class="option-item">
+                                    <input type="checkbox" name="days" value="friday"> Friday
+                                </label>
+                                <label class="option-item">
+                                    <input type="checkbox" name="days" value="saturday"> Saturday
+                                </label>
+                                <label class="option-item">
+                                    <input type="checkbox" name="days" value="sunday"> Sunday
+                                </label>
+                            </div>
+                            <div class="exercise-times">
+                                <select id="start-times" size="2">
+                                    <option value="12am">12:00am</option>
+                                    <option value="1am">1:00am</option>
+                                    <option value="2am">2:00am</option>
+                                    <option value="3am">3:00am</option>
+                                    <option value="4am">4:00am</option>
+                                    <option value="5am">5:00am</option>
+                                    <option value="6am">6:00am</option>
+                                    <option value="7am">7:00am</option>
+                                    <option value="8am">8:00am</option>
+                                    <option value="9am">9:00am</option>
+                                    <option value="10am">10:00am</option>
+                                    <option value="11am">11:00am</option>
+                                    <option value="12pm">12:00pm</option>
+                                    <option value="1pm">1:00pm</option>
+                                    <option value="2pm">2:00pm</option>
+                                    <option value="3pm">3:00pm</option>
+                                    <option value="4pm">4:00pm</option>
+                                    <option value="5pm">5:00pm</option>
+                                    <option value="6pm">6:00pm</option>
+                                    <option value="7pm">7:00pm</option>
+                                    <option value="8pm">8:00pm</option>
+                                    <option value="9pm">9:00pm</option>
+                                    <option value="10pm">10:00pm</option>
+                                    <option value="11pm">11:00pm</option>
+                                </select>
+                                <select id="start-times" size="2">
+                                    <option value="12am">12:00am</option>
+                                    <option value="1am">1:00am</option>
+                                    <option value="2am">2:00am</option>
+                                    <option value="3am">3:00am</option>
+                                    <option value="4am">4:00am</option>
+                                    <option value="5am">5:00am</option>
+                                    <option value="6am">6:00am</option>
+                                    <option value="7am">7:00am</option>
+                                    <option value="8am">8:00am</option>
+                                    <option value="9am">9:00am</option>
+                                    <option value="10am">10:00am</option>
+                                    <option value="11am">11:00am</option>
+                                    <option value="12pm">12:00pm</option>
+                                    <option value="1pm">1:00pm</option>
+                                    <option value="2pm">2:00pm</option>
+                                    <option value="3pm">3:00pm</option>
+                                    <option value="4pm">4:00pm</option>
+                                    <option value="5pm">5:00pm</option>
+                                    <option value="6pm">6:00pm</option>
+                                    <option value="7pm">7:00pm</option>
+                                    <option value="8pm">8:00pm</option>
+                                    <option value="9pm">9:00pm</option>
+                                    <option value="10pm">10:00pm</option>
+                                    <option value="11pm">11:00pm</option>
+                                </select>
+                                <select id="start-times" size="2">
+                                    <option value="12am">12:00am</option>
+                                    <option value="1am">1:00am</option>
+                                    <option value="2am">2:00am</option>
+                                    <option value="3am">3:00am</option>
+                                    <option value="4am">4:00am</option>
+                                    <option value="5am">5:00am</option>
+                                    <option value="6am">6:00am</option>
+                                    <option value="7am">7:00am</option>
+                                    <option value="8am">8:00am</option>
+                                    <option value="9am">9:00am</option>
+                                    <option value="10am">10:00am</option>
+                                    <option value="11am">11:00am</option>
+                                    <option value="12pm">12:00pm</option>
+                                    <option value="1pm">1:00pm</option>
+                                    <option value="2pm">2:00pm</option>
+                                    <option value="3pm">3:00pm</option>
+                                    <option value="4pm">4:00pm</option>
+                                    <option value="5pm">5:00pm</option>
+                                    <option value="6pm">6:00pm</option>
+                                    <option value="7pm">7:00pm</option>
+                                    <option value="8pm">8:00pm</option>
+                                    <option value="9pm">9:00pm</option>
+                                    <option value="10pm">10:00pm</option>
+                                    <option value="11pm">11:00pm</option>
+                                </select>
+                                <select id="start-times" size="2">
+                                    <option value="12am">12:00am</option>
+                                    <option value="1am">1:00am</option>
+                                    <option value="2am">2:00am</option>
+                                    <option value="3am">3:00am</option>
+                                    <option value="4am">4:00am</option>
+                                    <option value="5am">5:00am</option>
+                                    <option value="6am">6:00am</option>
+                                    <option value="7am">7:00am</option>
+                                    <option value="8am">8:00am</option>
+                                    <option value="9am">9:00am</option>
+                                    <option value="10am">10:00am</option>
+                                    <option value="11am">11:00am</option>
+                                    <option value="12pm">12:00pm</option>
+                                    <option value="1pm">1:00pm</option>
+                                    <option value="2pm">2:00pm</option>
+                                    <option value="3pm">3:00pm</option>
+                                    <option value="4pm">4:00pm</option>
+                                    <option value="5pm">5:00pm</option>
+                                    <option value="6pm">6:00pm</option>
+                                    <option value="7pm">7:00pm</option>
+                                    <option value="8pm">8:00pm</option>
+                                    <option value="9pm">9:00pm</option>
+                                    <option value="10pm">10:00pm</option>
+                                    <option value="11pm">11:00pm</option>
+                                </select>
+                                <select id="start-times" size="2">
+                                    <option value="12am">12:00am</option>
+                                    <option value="1am">1:00am</option>
+                                    <option value="2am">2:00am</option>
+                                    <option value="3am">3:00am</option>
+                                    <option value="4am">4:00am</option>
+                                    <option value="5am">5:00am</option>
+                                    <option value="6am">6:00am</option>
+                                    <option value="7am">7:00am</option>
+                                    <option value="8am">8:00am</option>
+                                    <option value="9am">9:00am</option>
+                                    <option value="10am">10:00am</option>
+                                    <option value="11am">11:00am</option>
+                                    <option value="12pm">12:00pm</option>
+                                    <option value="1pm">1:00pm</option>
+                                    <option value="2pm">2:00pm</option>
+                                    <option value="3pm">3:00pm</option>
+                                    <option value="4pm">4:00pm</option>
+                                    <option value="5pm">5:00pm</option>
+                                    <option value="6pm">6:00pm</option>
+                                    <option value="7pm">7:00pm</option>
+                                    <option value="8pm">8:00pm</option>
+                                    <option value="9pm">9:00pm</option>
+                                    <option value="10pm">10:00pm</option>
+                                    <option value="11pm">11:00pm</option>
+                                </select>
+                                <select id="start-times" size="2">
+                                    <option value="12am">12:00am</option>
+                                    <option value="1am">1:00am</option>
+                                    <option value="2am">2:00am</option>
+                                    <option value="3am">3:00am</option>
+                                    <option value="4am">4:00am</option>
+                                    <option value="5am">5:00am</option>
+                                    <option value="6am">6:00am</option>
+                                    <option value="7am">7:00am</option>
+                                    <option value="8am">8:00am</option>
+                                    <option value="9am">9:00am</option>
+                                    <option value="10am">10:00am</option>
+                                    <option value="11am">11:00am</option>
+                                    <option value="12pm">12:00pm</option>
+                                    <option value="1pm">1:00pm</option>
+                                    <option value="2pm">2:00pm</option>
+                                    <option value="3pm">3:00pm</option>
+                                    <option value="4pm">4:00pm</option>
+                                    <option value="5pm">5:00pm</option>
+                                    <option value="6pm">6:00pm</option>
+                                    <option value="7pm">7:00pm</option>
+                                    <option value="8pm">8:00pm</option>
+                                    <option value="9pm">9:00pm</option>
+                                    <option value="10pm">10:00pm</option>
+                                    <option value="11pm">11:00pm</option>
+                                </select>
+                                <select id="start-times" size="2">
+                                    <option value="12am">12:00am</option>
+                                    <option value="1am">1:00am</option>
+                                    <option value="2am">2:00am</option>
+                                    <option value="3am">3:00am</option>
+                                    <option value="4am">4:00am</option>
+                                    <option value="5am">5:00am</option>
+                                    <option value="6am">6:00am</option>
+                                    <option value="7am">7:00am</option>
+                                    <option value="8am">8:00am</option>
+                                    <option value="9am">9:00am</option>
+                                    <option value="10am">10:00am</option>
+                                    <option value="11am">11:00am</option>
+                                    <option value="12pm">12:00pm</option>
+                                    <option value="1pm">1:00pm</option>
+                                    <option value="2pm">2:00pm</option>
+                                    <option value="3pm">3:00pm</option>
+                                    <option value="4pm">4:00pm</option>
+                                    <option value="5pm">5:00pm</option>
+                                    <option value="6pm">6:00pm</option>
+                                    <option value="7pm">7:00pm</option>
+                                    <option value="8pm">8:00pm</option>
+                                    <option value="9pm">9:00pm</option>
+                                    <option value="10pm">10:00pm</option>
+                                    <option value="11pm">11:00pm</option>
+                                </select>
+                            </div>
+                            <div class="exercise-times">
+                                <select id="end-times" size="2">
+                                    <option value="12am">12:00am</option>
+                                    <option value="1am">1:00am</option>
+                                    <option value="2am">2:00am</option>
+                                    <option value="3am">3:00am</option>
+                                    <option value="4am">4:00am</option>
+                                    <option value="5am">5:00am</option>
+                                    <option value="6am">6:00am</option>
+                                    <option value="7am">7:00am</option>
+                                    <option value="8am">8:00am</option>
+                                    <option value="9am">9:00am</option>
+                                    <option value="10am">10:00am</option>
+                                    <option value="11am">11:00am</option>
+                                    <option value="12pm">12:00pm</option>
+                                    <option value="1pm">1:00pm</option>
+                                    <option value="2pm">2:00pm</option>
+                                    <option value="3pm">3:00pm</option>
+                                    <option value="4pm">4:00pm</option>
+                                    <option value="5pm">5:00pm</option>
+                                    <option value="6pm">6:00pm</option>
+                                    <option value="7pm">7:00pm</option>
+                                    <option value="8pm">8:00pm</option>
+                                    <option value="9pm">9:00pm</option>
+                                    <option value="10pm">10:00pm</option>
+                                    <option value="11pm">11:00pm</option>
+                                </select>
+                                <select id="end-times" size="2">
+                                    <option value="12am">12:00am</option>
+                                    <option value="1am">1:00am</option>
+                                    <option value="2am">2:00am</option>
+                                    <option value="3am">3:00am</option>
+                                    <option value="4am">4:00am</option>
+                                    <option value="5am">5:00am</option>
+                                    <option value="6am">6:00am</option>
+                                    <option value="7am">7:00am</option>
+                                    <option value="8am">8:00am</option>
+                                    <option value="9am">9:00am</option>
+                                    <option value="10am">10:00am</option>
+                                    <option value="11am">11:00am</option>
+                                    <option value="12pm">12:00pm</option>
+                                    <option value="1pm">1:00pm</option>
+                                    <option value="2pm">2:00pm</option>
+                                    <option value="3pm">3:00pm</option>
+                                    <option value="4pm">4:00pm</option>
+                                    <option value="5pm">5:00pm</option>
+                                    <option value="6pm">6:00pm</option>
+                                    <option value="7pm">7:00pm</option>
+                                    <option value="8pm">8:00pm</option>
+                                    <option value="9pm">9:00pm</option>
+                                    <option value="10pm">10:00pm</option>
+                                    <option value="11pm">11:00pm</option>
+                                </select>
+                                <select id="end-times" size="2">
+                                    <option value="12am">12:00am</option>
+                                    <option value="1am">1:00am</option>
+                                    <option value="2am">2:00am</option>
+                                    <option value="3am">3:00am</option>
+                                    <option value="4am">4:00am</option>
+                                    <option value="5am">5:00am</option>
+                                    <option value="6am">6:00am</option>
+                                    <option value="7am">7:00am</option>
+                                    <option value="8am">8:00am</option>
+                                    <option value="9am">9:00am</option>
+                                    <option value="10am">10:00am</option>
+                                    <option value="11am">11:00am</option>
+                                    <option value="12pm">12:00pm</option>
+                                    <option value="1pm">1:00pm</option>
+                                    <option value="2pm">2:00pm</option>
+                                    <option value="3pm">3:00pm</option>
+                                    <option value="4pm">4:00pm</option>
+                                    <option value="5pm">5:00pm</option>
+                                    <option value="6pm">6:00pm</option>
+                                    <option value="7pm">7:00pm</option>
+                                    <option value="8pm">8:00pm</option>
+                                    <option value="9pm">9:00pm</option>
+                                    <option value="10pm">10:00pm</option>
+                                    <option value="11pm">11:00pm</option>
+                                </select>
+                                <select id="end-times" size="2">
+                                    <option value="12am">12:00am</option>
+                                    <option value="1am">1:00am</option>
+                                    <option value="2am">2:00am</option>
+                                    <option value="3am">3:00am</option>
+                                    <option value="4am">4:00am</option>
+                                    <option value="5am">5:00am</option>
+                                    <option value="6am">6:00am</option>
+                                    <option value="7am">7:00am</option>
+                                    <option value="8am">8:00am</option>
+                                    <option value="9am">9:00am</option>
+                                    <option value="10am">10:00am</option>
+                                    <option value="11am">11:00am</option>
+                                    <option value="12pm">12:00pm</option>
+                                    <option value="1pm">1:00pm</option>
+                                    <option value="2pm">2:00pm</option>
+                                    <option value="3pm">3:00pm</option>
+                                    <option value="4pm">4:00pm</option>
+                                    <option value="5pm">5:00pm</option>
+                                    <option value="6pm">6:00pm</option>
+                                    <option value="7pm">7:00pm</option>
+                                    <option value="8pm">8:00pm</option>
+                                    <option value="9pm">9:00pm</option>
+                                    <option value="10pm">10:00pm</option>
+                                    <option value="11pm">11:00pm</option>
+                                </select>
+                                <select id="end-times" size="2">
+                                    <option value="12am">12:00am</option>
+                                    <option value="1am">1:00am</option>
+                                    <option value="2am">2:00am</option>
+                                    <option value="3am">3:00am</option>
+                                    <option value="4am">4:00am</option>
+                                    <option value="5am">5:00am</option>
+                                    <option value="6am">6:00am</option>
+                                    <option value="7am">7:00am</option>
+                                    <option value="8am">8:00am</option>
+                                    <option value="9am">9:00am</option>
+                                    <option value="10am">10:00am</option>
+                                    <option value="11am">11:00am</option>
+                                    <option value="12pm">12:00pm</option>
+                                    <option value="1pm">1:00pm</option>
+                                    <option value="2pm">2:00pm</option>
+                                    <option value="3pm">3:00pm</option>
+                                    <option value="4pm">4:00pm</option>
+                                    <option value="5pm">5:00pm</option>
+                                    <option value="6pm">6:00pm</option>
+                                    <option value="7pm">7:00pm</option>
+                                    <option value="8pm">8:00pm</option>
+                                    <option value="9pm">9:00pm</option>
+                                    <option value="10pm">10:00pm</option>
+                                    <option value="11pm">11:00pm</option>
+                                </select>
+                                <select id="end-times" size="2">
+                                    <option value="12am">12:00am</option>
+                                    <option value="1am">1:00am</option>
+                                    <option value="2am">2:00am</option>
+                                    <option value="3am">3:00am</option>
+                                    <option value="4am">4:00am</option>
+                                    <option value="5am">5:00am</option>
+                                    <option value="6am">6:00am</option>
+                                    <option value="7am">7:00am</option>
+                                    <option value="8am">8:00am</option>
+                                    <option value="9am">9:00am</option>
+                                    <option value="10am">10:00am</option>
+                                    <option value="11am">11:00am</option>
+                                    <option value="12pm">12:00pm</option>
+                                    <option value="1pm">1:00pm</option>
+                                    <option value="2pm">2:00pm</option>
+                                    <option value="3pm">3:00pm</option>
+                                    <option value="4pm">4:00pm</option>
+                                    <option value="5pm">5:00pm</option>
+                                    <option value="6pm">6:00pm</option>
+                                    <option value="7pm">7:00pm</option>
+                                    <option value="8pm">8:00pm</option>
+                                    <option value="9pm">9:00pm</option>
+                                    <option value="10pm">10:00pm</option>
+                                    <option value="11pm">11:00pm</option>
+                                </select>
+                                <select id="end-times" size="2">
+                                    <option value="12am">12:00am</option>
+                                    <option value="1am">1:00am</option>
+                                    <option value="2am">2:00am</option>
+                                    <option value="3am">3:00am</option>
+                                    <option value="4am">4:00am</option>
+                                    <option value="5am">5:00am</option>
+                                    <option value="6am">6:00am</option>
+                                    <option value="7am">7:00am</option>
+                                    <option value="8am">8:00am</option>
+                                    <option value="9am">9:00am</option>
+                                    <option value="10am">10:00am</option>
+                                    <option value="11am">11:00am</option>
+                                    <option value="12pm">12:00pm</option>
+                                    <option value="1pm">1:00pm</option>
+                                    <option value="2pm">2:00pm</option>
+                                    <option value="3pm">3:00pm</option>
+                                    <option value="4pm">4:00pm</option>
+                                    <option value="5pm">5:00pm</option>
+                                    <option value="6pm">6:00pm</option>
+                                    <option value="7pm">7:00pm</option>
+                                    <option value="8pm">8:00pm</option>
+                                    <option value="9pm">9:00pm</option>
+                                    <option value="10pm">10:00pm</option>
+                                    <option value="11pm">11:00pm</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <!-- Question 1 -->
+                    <div class="question" data-step="2">
                         <h2>What days do you exercise?</h2>
                         <h4>Select all that apply</h4>
                         <div class="error-message" style="color:red; font-size:0.9em; margin-bottom:0.5em;"></div>
@@ -61,7 +465,7 @@
                     </div>
 
                     <!-- Question 2 -->
-                    <div class="question" data-step="2">
+                    <div class="question" data-step="3">
                         <h2>What times of day do you exercise?</h2>
                         <h4>Select all that apply</h4>
                         <div class="error-message" style="color:red; font-size:0.9em; margin-bottom:0.5em;"></div>
@@ -82,7 +486,7 @@
                     </div>
 
                     <!-- Question 3 -->
-                    <div class="question" data-step="3">
+                    <div class="question" data-step="4">
                         <h2>How do you like to exercise?</h2>
                         <h4>Select all that apply</h4>
                         <div class="error-message" style="color:red; font-size:0.9em; margin-bottom:0.5em;"></div>
@@ -115,7 +519,7 @@
                     </div>
 
                     <!-- Question 4 -->
-                    <div class="question" data-step="4">
+                    <div class="question" data-step="5">
                         <h2>What environments do you want to exercise in?</h2>
                         <h4>Select all that apply</h4>
                         <div class="error-message" style="color:red; font-size:0.9em; margin-bottom:0.5em;"></div>
@@ -136,7 +540,7 @@
                     </div>
 
                     <!-- Question 5 -->
-                    <div class="question" data-step="5">
+                    <div class="question" data-step="6">
                         <h2>What are your fitness Goals?</h2>
                         <h4>Select all that apply</h4>
                         <div class="error-message" style="color:red; font-size:0.9em; margin-bottom:0.5em;"></div>
@@ -169,7 +573,7 @@
                     </div>
 
                     <!-- Question 6 -->
-                    <div class="question" data-step="6">
+                    <div class="question" data-step="7">
                         <h2>What areas of your body are you training?</h2>
                         <h4>Select all that apply</h4>
                         <div class="error-message" style="color:red; font-size:0.9em; margin-bottom:0.5em;"></div>
@@ -190,7 +594,7 @@
                     </div>
 
                     <!-- Question 7 -->
-                    <div class="question" data-step="7">
+                    <div class="question" data-step="8">
                         <h2>How far are you willing to Travel?</h2>
                         <h4>Select one option</h4>
                         <div class="error-message" style="color:red; font-size:0.9em; margin-bottom:0.5em;"></div>
@@ -217,7 +621,7 @@
                     </div>
 
                     <!-- Question 8 -->
-                    <div class="question" data-step="8">
+                    <div class="question" data-step="9">
                         <h2>How long have you been consistently exercising?</h2>
                         <h4>Select one option</h4>
                         <div class="error-message" style="color:red; font-size:0.9em; margin-bottom:0.5em;"></div>
