@@ -334,17 +334,30 @@
 
         });
 
-        // Update the event listener name to handle both cases
+        // Update your JavaScript validation
         nextButton.addEventListener('click', () => {
             const currentQuestion = document.querySelector('.question.active');
-            const hasSelection = currentQuestion.querySelector('input:checked');
+            const questionType = currentQuestion.querySelector('input[type="radio"]') ? 'radio' : 'checkbox';
+            let isValid = false;
+
+            if (questionType === 'radio') {
+                // For radio button groups (single selection)
+                isValid = currentQuestion.querySelector('input[type="radio"]:checked') !== null;
+            } else {
+                // For checkbox groups (multiple selections)
+                isValid = currentQuestion.querySelectorAll('input[type="checkbox"]:checked').length > 0;
+            }
+
             const errorMsg = currentQuestion.querySelector('.error-message');
 
-            if (!hasSelection) {
-                errorMsg.textContent = "Please make a selection";
+            if (!isValid) {
+                errorMsg.textContent = questionType === 'radio'
+                    ? "Please select one option"
+                    : "Please select at least one option";
                 return;
             }
 
+            // Proceed to next step or submit
             if (currentStep < totalSteps) {
                 currentStep++;
                 showStep(currentStep);
@@ -353,13 +366,23 @@
             }
         });
 
+        // Update selection styling
+        document.querySelectorAll('.option-item input').forEach(input => {
+            input.addEventListener('change', () => {
+                if (input.type === 'radio') {
+                    // Remove all selections from radio group
+                    document.querySelectorAll(`input[name="${input.name}"]`).forEach(radio => {
+                        radio.parentElement.classList.remove('selected');
+                    });
+                }
+                input.parentElement.classList.toggle('selected', input.checked);
 
-        // document.getElementById('backButton').addEventListener('click', () => {
-        //     if (currentStep > 1) {
-        //         currentStep--;
-        //         showStep(currentStep);
-        //     }
-        // });
+                // Clear error message
+                const errorMsg = input.closest('.question').querySelector('.error-message');
+                errorMsg.textContent = "";
+            });
+        });
+
 
         // Add selection styling and clear error message when an option is selected
         document.querySelectorAll('.option-item input').forEach(input => {
