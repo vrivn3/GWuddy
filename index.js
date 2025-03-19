@@ -48,17 +48,17 @@ const matchData = {
     name: "Kate",
     initials: "KA",
     level: "excellent",
-    experience: "4+ years",
+    experience: "6+ months",
     travel: "12 km",
     schedule: {
       days: ["S", "M", "T", "W", "T", "F", "S"],
       activeDays: [false, true, false, true, true, false, true],
-      times: ["7pm - 10pm"]
+      times: ["3pm - 10pm"]
     },
     environment: ["Indoor gym", "Spin class"],
-    targeted: ["Full body", "Endurance"],
-    exercises: ["Cycling", "HIIT", "Strength training"],
-    goals: ["Build muscle", "Improve stamina"],
+    targeted: ["Full body", "Upper Body"],
+    exercises: ["Cardio", "HIIT", "Strength training"],
+    goals: ["Build muscle", "Improve stamina", "Weight loss"],
     isSaved: false,
     isFriendRequested: false
   },
